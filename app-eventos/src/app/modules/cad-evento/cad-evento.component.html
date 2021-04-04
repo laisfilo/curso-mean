@@ -1,0 +1,21 @@
+<div>
+    <div class="container">
+        <h1>Cadastro de Eventos</h1>
+        <h4>Forneça os dados para o cadastro</h4>
+     </div>
+    <div class="container">
+        <div>
+            <label>Código:</label>
+            <span class="codigo">{{evento.id}}</span>
+        </div>
+        <form>
+            <label for="ev-descricao" class="form-label">Descrição</label>
+            <input class="form-control" [(ngModel)]="evento.descricao" id="ev-descricao"/>
+            <label for="ev-data" class="form-label">Data</label>
+            <input type="date" class="form-control" [(ngModel)]="evento.data" id="ev-data" />
+            <label for="ev-preco" class="form-label">Preço</label>
+            <input class="form-control" [(ngModel)]="evento.preco" id="ev-preco"/>
+            <button type="submit" class="btn btn-primary" (click)="create()" >Enviar</button>
+        </form>
+    </div>
+</div>

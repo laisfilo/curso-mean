@@ -10,9 +10,9 @@ import { Evento } from '../models/evento';
 })
 export class EventosService {
 
-  // url = 'http://localhost:3200/eventos';
+  url = 'http://localhost:4200/api/eventos';
 
-  url = 'https://test.spaceflightnewsapi.net/api/v2/articles';
+  // url = 'https://test.spaceflightnewsapi.net/api/v2/articles';
 
   constructor(private httpClient: HttpClient) { 
     // this.httpClient.get<Evento[]>(this.url)
@@ -30,6 +30,12 @@ export class EventosService {
         retry(2),
         catchError(this.handleError))
   }
+
+  create(model: Evento): Observable<Evento> {
+    return this.httpClient.post<Evento>(this.url, model);
+
+  }
+
 
     // Manipulação de erros
     handleError(error: HttpErrorResponse) {

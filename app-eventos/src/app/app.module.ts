@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
@@ -13,12 +14,14 @@ import { HomeComponent } from './modules/home/home.component';
 import { LoginComponent } from './core/auth/login/login.component';
 import { CadUsuarioComponent } from './modules/cad-usuario/cad-usuario.component';
 import { ListEventosComponent } from './modules/list-eventos/list-eventos.component';
+import { CadEventoComponent } from './modules/cad-evento/cad-evento.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'cadastro', component: CadUsuarioComponent },
+  { path: 'cadastro-user', component: CadUsuarioComponent },
   { path: 'eventos', component: ListEventosComponent },
+  { path: 'cadastro-evento', component: CadEventoComponent },
   { path: '',   redirectTo: '/login', pathMatch: 'full' }
 ];
 
@@ -26,6 +29,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot(
       appRoutes
     )
@@ -37,7 +41,8 @@ const appRoutes: Routes = [
     HomeComponent,
     LoginComponent,
     CadUsuarioComponent,
-    ListEventosComponent
+    ListEventosComponent,
+    CadEventoComponent
   ],
   exports: [
     RouterModule
